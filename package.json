@@ -6,11 +6,45 @@
   "scripts": {
     "start": "node ./node_modules/electron/cli.js .",
     "dev": "vite",
-    "build": "tsc && vite build && electron-builder --dir",
+    "build": "tsc && vite build && electron-builder",
     "build:fast": "tsc && vite build",
+    "build:installer": "tsc && vite build && electron-builder --win nsis",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["jira", "timesheet", "worklog", "electron", "time-tracker"],
+  "build": {
+    "appId": "com.jiraassistant.desktop",
+    "productName": "Jira Assistant",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "resources/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "resources/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Jira Assistant",
+      "runAfterFinish": true
+    }
+  },
+  "keywords": [
+    "jira",
+    "timesheet",
+    "worklog",
+    "electron",
+    "time-tracker"
+  ],
   "author": "Antigravity",
   "license": "MIT",
   "dependencies": {
@@ -28,6 +62,7 @@
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "electron": "^33.2.0",
+    "electron-builder": "^26.15.3",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
