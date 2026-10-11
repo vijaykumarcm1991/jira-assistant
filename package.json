@@ -1,0 +1,38 @@
+{
+  "name": "jira-assistant-desktop",
+  "version": "1.0.0",
+  "description": "Native Windows Jira Assistant desktop app for time tracking, worklogs, and issue management",
+  "main": "dist-electron/main/index.js",
+  "scripts": {
+    "start": "node ./node_modules/electron/cli.js .",
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder --dir",
+    "build:fast": "tsc && vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["jira", "timesheet", "worklog", "electron", "time-tracker"],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "lucide-react": "^1.16.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.4",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.2.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
