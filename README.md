@@ -49,16 +49,18 @@ A native Windows desktop application modeled after the popular Jira Assistant ex
 
 ## 🛠️ How to Run
 
-### Option 1: Desktop Shortcut
-- Double-click the **`Jira Assistant`** shortcut on your Windows Desktop.
+### Option 1: Batch Launcher
+- In the repository root folder, double-click `Run-Jira-Assistant.bat`.
 
-### Option 2: Batch Launcher
-- In [`d:\OM_Projects\Jira-Assistant`](file:///d:/OM_Projects/Jira-Assistant), double-click [`Run-Jira-Assistant.bat`](file:///d:/OM_Projects/Jira-Assistant/Run-Jira-Assistant.bat).
+### Option 2: Terminal
+```bash
+# Install dependencies
+npm install
 
-### Option 3: Terminal
-```powershell
+# Start the desktop application
 npm start
-# or for live development:
+
+# Or for live development:
 npm run dev
 ```
 
