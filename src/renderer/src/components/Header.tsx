@@ -67,9 +67,9 @@ export const Header: React.FC<HeaderProps> = ({
             <Clock className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="text-sm font-bold tracking-tight text-white flex items-center gap-1.5">
+            <h1 className="text-sm font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
               Jira Assistant
-              <span className="text-[10px] uppercase font-semibold px-1.5 py-0.2 bg-blue-500/20 text-blue-400 rounded">
+              <span className="text-[10px] uppercase font-semibold px-1.5 py-0.2 bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded">
                 Desktop
               </span>
             </h1>

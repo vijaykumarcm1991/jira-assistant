@@ -51,22 +51,22 @@ export const MyIssuesView: React.FC<MyIssuesViewProps> = ({
     switch (priorityName?.toLowerCase()) {
       case 'highest':
       case 'high':
-        return 'text-rose-400 bg-rose-500/10 border-rose-500/20';
+        return 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border-rose-200 dark:border-rose-500/20';
       case 'medium':
-        return 'text-amber-400 bg-amber-500/10 border-amber-500/20';
+        return 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20';
       default:
-        return 'text-slate-400 bg-slate-500/10 border-slate-500/20';
+        return 'text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-500/10 border-slate-200 dark:border-slate-500/20';
     }
   };
 
   const getStatusColor = (category?: string) => {
     switch (category?.toLowerCase()) {
       case 'done':
-        return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+        return 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20';
       case 'in progress':
-        return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+        return 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-500/20';
       default:
-        return 'bg-slate-800 text-slate-300 border-slate-700';
+        return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700';
     }
   };
 
@@ -184,24 +184,24 @@ export const MyIssuesView: React.FC<MyIssuesViewProps> = ({
                       )}
                     </div>
 
-                    <h3 className="text-sm font-semibold text-white tracking-tight leading-snug">
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white tracking-tight leading-snug">
                       {issue.summary}
                     </h3>
 
                     {/* Time Tracking Progress */}
                     {issue.timeTracking && (
-                      <div className="flex items-center space-x-4 text-xs text-slate-400 pt-1">
+                      <div className="flex items-center space-x-4 text-xs text-slate-500 dark:text-slate-400 pt-1">
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-slate-500" />
+                          <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                           Spent:{' '}
-                          <span className="text-slate-200 font-semibold font-mono">
+                          <span className="text-slate-800 dark:text-slate-200 font-semibold font-mono">
                             {issue.timeTracking.timeSpent || '0m'}
                           </span>
                         </span>
                         {issue.timeTracking.remainingEstimate && (
                           <span>
                             Remaining:{' '}
-                            <span className="text-slate-200 font-semibold font-mono">
+                            <span className="text-slate-800 dark:text-slate-200 font-semibold font-mono">
                               {issue.timeTracking.remainingEstimate}
                             </span>
                           </span>
@@ -209,7 +209,7 @@ export const MyIssuesView: React.FC<MyIssuesViewProps> = ({
                         {issue.timeTracking.originalEstimate && (
                           <span>
                             Estimate:{' '}
-                            <span className="text-slate-200 font-semibold font-mono">
+                            <span className="text-slate-800 dark:text-slate-200 font-semibold font-mono">
                               {issue.timeTracking.originalEstimate}
                             </span>
                           </span>
@@ -228,7 +228,7 @@ export const MyIssuesView: React.FC<MyIssuesViewProps> = ({
                         const transId = targetName === 'Done' ? '31' : targetName === 'In Progress' ? '21' : '11';
                         onTransitionIssue(issue.key, transId);
                       }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
                       <option value="To Do">To Do</option>
                       <option value="In Progress">In Progress</option>
@@ -238,7 +238,7 @@ export const MyIssuesView: React.FC<MyIssuesViewProps> = ({
                     {/* Log Work Button */}
                     <button
                       onClick={() => onOpenQuickLog(issue.key)}
-                      className="flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 hover:text-white transition"
+                      className="flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition shadow-sm"
                       title="Log Work"
                     >
                       <Plus className="w-3.5 h-3.5" />

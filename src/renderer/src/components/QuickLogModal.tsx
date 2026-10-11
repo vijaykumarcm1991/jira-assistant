@@ -76,21 +76,21 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/40">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40">
           <div className="flex items-center space-x-2.5">
-            <div className="p-2 rounded-lg bg-blue-600/20 text-blue-400">
+            <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-semibold text-white">Log Work</h2>
-              <p className="text-xs text-slate-400">Submit time spent to Jira</p>
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white">Log Work</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Submit time spent to Jira</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition"
           >
             <X className="w-4 h-4" />
           </button>
@@ -99,7 +99,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {error && (
-            <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs flex items-center gap-2">
+            <div className="p-3 rounded-lg bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{error}</span>
             </div>
@@ -107,7 +107,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
 
           {/* Issue Selector */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
               Issue Key / Ticket
             </label>
             <div className="flex gap-2">
@@ -117,13 +117,13 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
                 onChange={(e) => setIssueKey(e.target.value.toUpperCase())}
                 placeholder="e.g. ENG-2041"
                 required
-                className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                className="flex-1 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono shadow-sm"
               />
               {issues.length > 0 && (
                 <select
                   onChange={(e) => setIssueKey(e.target.value)}
                   value={issueKey}
-                  className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[150px]"
+                  className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-800 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[150px] shadow-sm"
                 >
                   <option value="">Recent...</option>
                   {issues.map((i) => (
@@ -139,7 +139,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
           {/* Time Spent & Quick Chips */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="text-xs font-medium text-slate-300">Time Spent</label>
+              <label className="text-xs font-medium text-slate-700 dark:text-slate-300">Time Spent</label>
               <span className="text-[11px] text-slate-500">e.g. 1h 30m, 45m</span>
             </div>
             <input
@@ -148,7 +148,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
               onChange={(e) => setTimeSpent(e.target.value)}
               placeholder="e.g. 1h 30m"
               required
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+              className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono shadow-sm"
             />
             {/* Quick Chips */}
             <div className="flex flex-wrap gap-1.5 mt-2">
@@ -160,7 +160,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
                   className={`text-xs px-2.5 py-1 rounded-md font-mono transition ${
                     timeSpent === dur
                       ? 'bg-blue-600 text-white'
-                      : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                      : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   {dur}
@@ -171,7 +171,7 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
 
           {/* Date & Time */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center gap-1.5">
+            <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-slate-400" />
               Date Started
             </label>
@@ -180,13 +180,13 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
               value={dateStr}
               onChange={(e) => setDateStr(e.target.value)}
               required
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             />
           </div>
 
           {/* Worklog Description */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center gap-1.5">
+            <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
               <MessageSquare className="w-3.5 h-3.5 text-slate-400" />
               Work Description / Comment
             </label>
@@ -195,17 +195,17 @@ export const QuickLogModal: React.FC<QuickLogModalProps> = ({
               onChange={(e) => setComment(e.target.value)}
               rows={3}
               placeholder="What did you work on? (optional)"
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none shadow-sm"
             />
           </div>
 
           {/* Modal Actions */}
-          <div className="flex items-center justify-end space-x-3 pt-3 border-t border-slate-800">
+          <div className="flex items-center justify-end space-x-3 pt-3 border-t border-slate-200 dark:border-slate-800">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-4 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="px-4 py-2 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition"
             >
               Cancel
             </button>
